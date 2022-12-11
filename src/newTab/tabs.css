@@ -1,0 +1,52 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.subContainer {
+  width: 80%;
+  margin: 10px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  margin-bottom: 20px;
+  font: ui-monospace;
+  font-weight: 800;
+  color: rgb(234 88 12);
+  font-size: 24px;
+}
+
+.tabs {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 50%;
+}
+
+.tab {
+  font-size: 18px;
+  margin: 10px 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: rgb(154 52 18);
+  font-weight: 500;
+}
+
+.tab-selected {
+  font-weight: 900;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-underline-offset: 4px;
+}
