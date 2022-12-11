@@ -8,10 +8,7 @@ function DigestCard({ data, setDigestDate }) {
       <span className="back" onClick={() => setDigestDate(null)}>
         {`< Back`}
       </span>
-      <div
-        className="datacontainer"
-        onClick={() => window.open(data.url, "_blank")}
-      >
+      <div className="datacontainer">
         <div className="topcontainer">
           {data.thumbnail_file ? (
             <img className="image" src={data.thumbnail_file} />
@@ -22,11 +19,6 @@ function DigestCard({ data, setDigestDate }) {
           </div>
         </div>
         <div className="content">{data.summary}</div>
-        <div className="tag-container">
-          {data.tags.split(",").map((tag) => (
-            <span className="tag">{tag}</span>
-          ))}
-        </div>
         {data.audio_file ? (
           <ReactAudioPlayer src={data.audio_file} controls />
         ) : null}

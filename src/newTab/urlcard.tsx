@@ -20,9 +20,9 @@ function UrlCard({ id, data }) {
       </div>
       <div className="content">{data.summary}</div>
       <div className="tag-container">
-        {data.tags.split(",").map((tag) => (
-          <span className="tag">{tag}</span>
-        ))}
+        {(data.tags || "")
+          .split(",")
+          .map((tag) => (tag ? <span className="tag">{tag}</span> : null))}
       </div>
       {data.audio_file ? (
         <ReactAudioPlayer src={data.audio_file} controls />

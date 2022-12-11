@@ -8,41 +8,7 @@ const Popup = () => {
   const [currentUrl, setCurrentUrl] = useState("");
   const [mode, setMode] = useState(true);
   const [status, setStatus] = useState(null);
-  const [similarData, setSimilarData] = useState([
-    {
-      id: "assdsad",
-      date: "2019-12-11",
-      url: "https://google.com",
-      title: "Some title........",
-      content: "Big content",
-      summary: "aslkasldmlsmdlsmdl;msl;adm;lsaml;dmsa",
-      tags: "tag1, tag2, tag3",
-      thumbnail_file: "https://pocketgpt1.saumopal97.repl.co/static/icon.png",
-      audio_file: "https://pocketgpt1.saumopal97.repl.co/static/audio.mp3",
-    },
-    {
-      id: "assdsad",
-      date: "2019-12-11",
-      url: "https://google.com",
-      title: "Some title........",
-      content: "Big content",
-      summary: "aslkasldmlsmdlsmdl;msl;adm;lsaml;dmsa",
-      tags: "tag1, tag2, tag3",
-      thumbnail_file: "https://pocketgpt1.saumopal97.repl.co/static/icon.png",
-      audio_file: "https://pocketgpt1.saumopal97.repl.co/static/audio.mp3",
-    },
-    {
-      id: "assdsad",
-      date: "2019-12-11",
-      url: "https://google.com",
-      title: "Some title........",
-      content: "Big content",
-      summary: "aslkasldmlsmdlsmdl;msl;adm;lsaml;dmsa",
-      tags: "tag1, tag2, tag3",
-      thumbnail_file: "https://pocketgpt1.saumopal97.repl.co/static/icon.png",
-      audio_file: "https://pocketgpt1.saumopal97.repl.co/static/audio.mp3",
-    },
-  ]);
+  const [similarData, setSimilarData] = useState([]);
 
   useEffect(() => {
     if (status === "success" || status === "failure") {
@@ -64,7 +30,7 @@ const Popup = () => {
       try {
         setStatus("loading");
         const response = await axios.post(
-          "https://PocketGPT1.saumopal97.repl.co/v1/api/save",
+          "https://PocketGPT-For-Assembly-AI-Hackathon.saumopal97.repl.co/v1/api/save",
           { url: currentUrl }
         );
         console.log("response  ", response);
@@ -80,7 +46,7 @@ const Popup = () => {
       try {
         setStatus("loading");
         const response = await axios.post(
-          "https://PocketGPT1.saumopal97.repl.co/v1/api/similar",
+          "https://PocketGPT-For-Assembly-AI-Hackathon.saumopal97.repl.co/v1/api/similar",
           { url: currentUrl }
         );
         console.log("response  ", response);

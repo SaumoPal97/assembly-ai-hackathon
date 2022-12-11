@@ -8,63 +8,10 @@ import DigestCard from "./digestcard";
 function Tabs() {
   const [mode, setMode] = useState(true);
   const [status, setStatus] = useState(null);
-  const [allData, setAllData] = useState([
-    {
-      id: "assdsad",
-      date: "2019-12-11",
-      url: "https://google.com",
-      title: "Some title........",
-      content: "Big content",
-      summary: "aslkasldmlsmdlsmdl;msl;adm;lsaml;dmsa",
-      tags: "tag1, tag2, tag3",
-      thumbnail_file: "https://pocketgpt1.saumopal97.repl.co/static/icon.png",
-      audio_file: "https://pocketgpt1.saumopal97.repl.co/static/audio.mp3",
-    },
-    {
-      id: "assdsad",
-      date: "2019-12-11",
-      url: "https://google.com",
-      title: "Some title........",
-      content: "Big content",
-      summary: "aslkasldmlsmdlsmdl;msl;adm;lsaml;dmsa",
-      tags: "tag1, tag2, tag3",
-      thumbnail_file: "https://pocketgpt1.saumopal97.repl.co/static/icon.png",
-      audio_file: "https://pocketgpt1.saumopal97.repl.co/static/audio.mp3",
-    },
-    {
-      id: "assdsad",
-      date: "2019-12-11",
-      url: "https://google.com",
-      title: "Some title........",
-      content: "Big content",
-      summary: "aslkasldmlsmdlsmdl;msl;adm;lsaml;dmsa",
-      tags: "tag1, tag2, tag3",
-      thumbnail_file: "https://pocketgpt1.saumopal97.repl.co/static/icon.png",
-      audio_file: "https://pocketgpt1.saumopal97.repl.co/static/audio.mp3",
-    },
-  ]);
-  const [dailyDigestData, setDailyDigestData] = useState([
-    {
-      id: "assdsad",
-      date: "2019-12-11",
-      thumbnail_file: "https://pocketgpt1.saumopal97.repl.co/static/icon.png",
-    },
-    {
-      id: "assdsad",
-      date: "2020-12-12",
-      thumbnail_file: "https://pocketgpt1.saumopal97.repl.co/static/icon.png",
-    },
-  ]);
+  const [allData, setAllData] = useState([]);
+  const [dailyDigestData, setDailyDigestData] = useState([]);
   const [digestDate, setDigestDate] = useState(null);
-  const [digestData, setDigestData] = useState({
-    date: "2019-12-11",
-    title: "Some title........",
-    content: "Big content",
-    summary: "aslkasldmlsmdlsmdl;msl;adm;lsaml;dmsa",
-    tags: "tag1, tag2, tag3",
-    thumbnail_file: "https://pocketgpt1.saumopal97.repl.co/static/icon.png",
-    audio_file: "https://pocketgpt1.saumopal97.repl.co/static/audio.mp3",
-  });
+  const [digestData, setDigestData] = useState({});
 
   useEffect(() => {
     if (status === "success" || status === "failure") {
@@ -76,10 +23,10 @@ function Tabs() {
     try {
       setStatus("loading");
       const response = await axios.get(
-        "https://PocketGPT1.saumopal97.repl.co/v1/api/all"
+        "https://PocketGPT-For-Assembly-AI-Hackathon.saumopal97.repl.co/v1/api/all"
       );
       console.log("response  ", response);
-      setAllData(response.data);
+      setAllData(response.data.data);
       setStatus("success");
     } catch (error) {
       setStatus("error");
@@ -90,10 +37,10 @@ function Tabs() {
     try {
       setStatus("loading");
       const response = await axios.get(
-        "https://PocketGPT1.saumopal97.repl.co/v1/api/digest-all"
+        "https://PocketGPT-For-Assembly-AI-Hackathon.saumopal97.repl.co/v1/api/roundup/all"
       );
       console.log("response  ", response);
-      setDailyDigestData(response.data);
+      setDailyDigestData(response.data.data);
       setStatus("success");
     } catch (error) {
       setStatus("error");
@@ -104,11 +51,11 @@ function Tabs() {
     try {
       setStatus("loading");
       const response = await axios.post(
-        "https://PocketGPT1.saumopal97.repl.co/v1/api/digest-all",
+        "https://PocketGPT-For-Assembly-AI-Hackathon.saumopal97.repl.co/v1/api/roundup",
         { date: digestDate }
       );
       console.log("response  ", response);
-      setDigestData(response.data);
+      setDigestData(response.data.data);
       setStatus("success");
     } catch (error) {
       setStatus("error");

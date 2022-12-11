@@ -9,9 +9,6 @@ function DigestDateCard({ id, data, setDigestDate }) {
       onClick={() => setDigestDate(data.date)}
     >
       <div className="topcontainer">
-        {/* {data.thumbnail_file ? (
-          <img className="image" src={data.thumbnail_file} />
-        ) : null} */}
         <div className="content-container">
           <span className="date">{`${data.date}`}</span>
         </div>
