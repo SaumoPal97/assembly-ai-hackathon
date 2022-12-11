@@ -2,13 +2,47 @@ import React, { useState, useEffect } from "react";
 import "../assets/tailwind.css";
 import { createRoot } from "react-dom/client";
 const axios = require("axios");
-import ReactAudioPlayer from "react-audio-player";
+import UrlCard from "./urlcard";
 
 const Popup = () => {
   const [currentUrl, setCurrentUrl] = useState("");
   const [mode, setMode] = useState(true);
   const [status, setStatus] = useState(null);
-  const [similarData, setSimilarData] = useState([]);
+  const [similarData, setSimilarData] = useState([
+    {
+      id: "assdsad",
+      date: "2019-12-11",
+      url: "https://google.com",
+      title: "Some title........",
+      content: "Big content",
+      summary: "aslkasldmlsmdlsmdl;msl;adm;lsaml;dmsa",
+      tags: "tag1, tag2, tag3",
+      thumbnail_file: "https://pocketgpt1.saumopal97.repl.co/static/icon.png",
+      audio_file: "https://pocketgpt1.saumopal97.repl.co/static/audio.mp3",
+    },
+    {
+      id: "assdsad",
+      date: "2019-12-11",
+      url: "https://google.com",
+      title: "Some title........",
+      content: "Big content",
+      summary: "aslkasldmlsmdlsmdl;msl;adm;lsaml;dmsa",
+      tags: "tag1, tag2, tag3",
+      thumbnail_file: "https://pocketgpt1.saumopal97.repl.co/static/icon.png",
+      audio_file: "https://pocketgpt1.saumopal97.repl.co/static/audio.mp3",
+    },
+    {
+      id: "assdsad",
+      date: "2019-12-11",
+      url: "https://google.com",
+      title: "Some title........",
+      content: "Big content",
+      summary: "aslkasldmlsmdlsmdl;msl;adm;lsaml;dmsa",
+      tags: "tag1, tag2, tag3",
+      thumbnail_file: "https://pocketgpt1.saumopal97.repl.co/static/icon.png",
+      audio_file: "https://pocketgpt1.saumopal97.repl.co/static/audio.mp3",
+    },
+  ]);
 
   useEffect(() => {
     if (status === "success" || status === "failure") {
@@ -97,20 +131,26 @@ const Popup = () => {
           </span>
           <button
             onClick={saveUrl}
-            className="ml-5 border border border-solid border border-orange-300 rounded-sm px-2 py-1"
+            className="ml-5 border border border-solid border-orange-300 rounded-sm px-2 py-1"
           >
             Save
           </button>
         </div>
       ) : (
-        <div className="flex flex-row justify-center items-center text-center border-solid border-2 border-orange-300 py-5 rounded-md">
+        <div className="flex flex-col justify-center items-center text-center py-5 rounded-md">
           <button
             onClick={showSimilarUrls}
             className="ml-5 border border border-solid border border-orange-300 rounded-sm px-2 py-1 flex flex-row text-center justify-center items-center"
           >
             Show similar content
           </button>
-          {similarData.length ? <div></div> : null}
+          {similarData.length ? (
+            <div>
+              {(similarData || []).map((data) => (
+                <UrlCard id={data.id} data={data} />
+              ))}
+            </div>
+          ) : null}
         </div>
       )}
 
@@ -122,10 +162,6 @@ const Popup = () => {
             ? "Failure"
             : "Loading..."
           : null}
-        <ReactAudioPlayer
-          src="https://pocketgpt1.saumopal97.repl.co/static/audio.mp3"
-          controls
-        />
       </div>
     </div>
   );

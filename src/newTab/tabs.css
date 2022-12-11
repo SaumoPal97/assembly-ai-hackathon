@@ -26,11 +26,18 @@
   font-size: 24px;
 }
 
+.loader {
+  margin-top: 10px;
+  font: ui-monospace;
+  font-weight: 500;
+  font-size: 14px;
+}
+
 .tabs {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  width: 50%;
+  width: 70%;
 }
 
 .tab {
